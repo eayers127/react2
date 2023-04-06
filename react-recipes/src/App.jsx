@@ -45,10 +45,8 @@ const handleUpdatedDone = (event) => {
 const toggleEdit = () => {
   setEditing(!editing);
   handleUpdatedDone();
-  updateName();
-  // setUpdate1();
-  // setUpdate2();
-  // setUpdate3();
+  // updateName();
+  // updateCalories();
 };
 
 
