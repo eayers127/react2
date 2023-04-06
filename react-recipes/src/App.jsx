@@ -45,7 +45,7 @@ const handleUpdatedDone = (event) => {
 const toggleEdit = () => {
   setEditing(!editing);
   handleUpdatedDone();
-  setUpdate();
+  updateName();
   // setUpdate1();
   // setUpdate2();
   // setUpdate3();
@@ -55,18 +55,18 @@ const toggleEdit = () => {
 
    const recipeList = recipes.map(recipe => (
       <div id="recipeCard">
-          <h2 key={recipe.name}>{recipe.name} <input type="text" defaultValue={recipe.name} class="textInput" style={editMode} onKeyDown={handleUpdatedDone} onChange={(e) => setUpdate(e.target.value, recipe.id)}/></h2>  
+          <h2 key={recipe.name}>{recipe.name} <input type="text" defaultValue={recipe.name} class="textInput" style={editMode} onKeyDown={handleUpdatedDone} onChange={(e) => updateName(e.target.value, recipe.id)}/></h2>  
           <div id="cardInfo">
           <ul>
             <li key={recipe.calories}>Calories: {recipe.calories} <input type="text"
              defaultValue={recipe.calories} class="textInput" style={editMode} onKeyDown={handleUpdatedDone}
-             onChange={(e) => setUpdate1(e.target.value, recipe.id)} /></li>
+             onChange={(e) => updateCalories(e.target.value, recipe.id)} /></li>
             <li key={recipe.servings}>Servings: {recipe.servings} <input type="text"
              defaultValue={recipe.servings} class="textInput" style={editMode} onKeyDown={handleUpdatedDone}
-             onChange={(e) => setUpdate2(e.target.value, recipe.id)}/></li>
+             onChange={(e) => updateServings(e.target.value, recipe.id)}/></li>
             <li key={recipe.ingredients}>Ingredients: {recipe.ingredients} <input type="text" 
             defaultValue={recipe.ingredients} class="textInput" style={editMode} onKeyDown={handleUpdatedDone}
-            onChange={(e) => setUpdate3(e.target.value, recipe.id)}/></li>
+            onChange={(e) => updateIngredients(e.target.value, recipe.id)}/></li>
           </ul>
           </div>
           <div id="buttons">
@@ -94,7 +94,7 @@ const toggleEdit = () => {
     setFavRecipes(favRecipies.filter(recipe => recipe.name !== name))
   }
 
-  const setUpdate = (updatedInformation, id) => {
+  const updateName = (updatedInformation, id) => {
       setRecipes(
         recipes.map((recipe) => {
           if (recipe.id === id) {
@@ -104,7 +104,7 @@ const toggleEdit = () => {
         })
       );
     };
-    const setUpdate1 = (updatedInformation, id) => {
+    const updateCalories = (updatedInformation, id) => {
       setRecipes(
         recipes.map((recipe) => {
           if (recipe.id === id) {
@@ -114,7 +114,7 @@ const toggleEdit = () => {
         })
       );
     };
-    const setUpdate2 = (updatedInformation, id) => {
+    const updateServings = (updatedInformation, id) => {
       setRecipes(
         recipes.map((recipe) => {
           if (recipe.id === id) {
@@ -124,7 +124,7 @@ const toggleEdit = () => {
         })
       );
     };
-    const setUpdate3 = (updatedInformation, id) => {
+    const updateIngredients = (updatedInformation, id) => {
       setRecipes(
         recipes.map((recipe) => {
           if (recipe.id === id) {
