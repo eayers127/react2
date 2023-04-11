@@ -16,7 +16,7 @@ const [editing, setEditing] = useState(false);
   }
 
 
-  const [favRecipies, setFavRecipies] = useState([])
+  const [favRecipes, setFavRecipes] = useState([])
   const [recipes, setRecipes] = useState([
     {
       id: 1,
@@ -80,16 +80,16 @@ const toggleEdit = () => {
     setRecipes(recipes.filter(recipe => recipe.name !== name))
   }
   
-  const favRecipiesList = favRecipies.map(favRecipie => (
+  const favRecipesList = favRecipes.map(favRecipie => (
     <li iclass="favorites">{favRecipie}<button onClick={() => removeFav(recipe.name)}>Remove from List</button></li>
   ))
 
    function addToFavorites(name) {
-    setFavRecipies(current => [...current, name])
+    setFavRecipes(current => [...current, name])
   }
 
-  function removeFav(name) {
-    setFavRecipes(favRecipies.filter(recipe => recipe.name !== name))
+  function removeFav(favRecipe) {
+    setFavRecipes(favRecipe.pop())
   }
 
   const updateName = (updatedInformation, id) => {
@@ -209,8 +209,8 @@ const toggleEdit = () => {
         {recipeList}
         </div>
         <h3>Favorite Recipes:</h3>
-        <div id="favoriteRecipies">
-        {favRecipiesList}
+        <div id="favoriteRecipes">
+        {favRecipesList}
         </div>
     </div>
 
