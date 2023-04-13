@@ -81,7 +81,7 @@ const toggleEdit = () => {
   }
   
   const favRecipesList = favRecipes.map(favRecipie => (
-    <li iclass="favorites">{favRecipie}<button onClick={() => removeFav(recipe.name)}>Remove from List</button></li>
+    <li iclass="favorites">{favRecipie}</li>
   ))
 
    function addToFavorites(name) {
